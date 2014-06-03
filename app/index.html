@@ -14,6 +14,7 @@
     <link href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css' />
     <link href='//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="css/animate.min.css" />
+    <link rel="stylesheet" href="css/angular-carousel.min.css" />
 </head>
 <body ng-cloak ng-class="ng-cloak">
 <section>
@@ -27,6 +28,14 @@
         <section class="hidden-print">
             <branding />
         </section>
+        <div style="margin-bottom:-45px;" ng-show="isActive('catalog')">
+            <ul rn-carousel class="image" rn-carousel-indicator="true" rn-carousel-auto-slide="7">
+                <li ng-repeat="slide in slides">
+                    <div style="background-image:url({{slide.image}});">
+                    </div>
+                </li>
+            </ul>
+        </div>
         <section class="container-view">
             <ng-view autoscroll />
         </section>
@@ -54,6 +63,7 @@
     <script src="lib/angular/angular.headroom.min.js" data-group="resources"></script>
     <script src="lib/angular/angular-ga-analytics.js" data-group="resources"></script>
     <script src="lib/angular/plugins/Debouncer.js" data-group="resources"></script>
+<script src="lib/angular/plugins/angular-carousel.min.js" data-group="resources"></script>
 
     <script src="js/app.js" data-group="source"></script>
     <script src="js/four51consts.js" data-group="source"></script>

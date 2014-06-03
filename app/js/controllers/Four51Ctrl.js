@@ -43,6 +43,11 @@ function ($scope, $route, $location, $451, User, Order, Security, OrderConfig, C
 				$scope.tree = data;
 				$scope.$broadcast("treeComplete", data);
 	        });
+            $scope.slides = [
+                {image:'css/images/slides/1.png'},
+                {image:'css/images/slides/2.png'},
+                {image:'css/images/slides/0.png'}
+            ];
         }
     }
 
