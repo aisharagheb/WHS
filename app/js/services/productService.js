@@ -71,7 +71,7 @@ four51.app.factory('Product', ['$resource', '$451', 'Security', 'User', function
 
      var _get = function(param, success, page, pagesize, searchTerm) {
 	     if (!angular.isUndefined(searchTerm)) {
-		     variantCache = [];
+		     variantCache.splice(0, variantCache.length);
 	     }
 	     //var product = store.get(_cacheName + param);
 	     //product ? (function() { _extend(product);	_then(success, product); })() :
@@ -91,7 +91,7 @@ four51.app.factory('Product', ['$resource', '$451', 'Security', 'User', function
     var _search = function(categoryInteropID, searchTerm, relatedProductsGroupID, success, page, pagesize) {
         if (productSearchTerm != searchTerm) {
 	        productSearchTerm = searchTerm;
-	        productCache = [];
+	        productCache.splice(0, productCache.length);
         }
 	    if(!categoryInteropID && !searchTerm && !relatedProductsGroupID){
 			_then(success, null);
@@ -112,7 +112,8 @@ four51.app.factory('Product', ['$resource', '$451', 'Security', 'User', function
 		    _then(success, productCache, productCache.length);
 	    }
 	    else {
-		    var products = $resource($451.api('Products')).get(criteria).$promise.then(function (products) {
+		    productCache.splice(0, productCache.length);
+		    $resource($451.api('Products')).get(criteria).$promise.then(function (products) {
 			    angular.forEach(products.List, _extend);
 			    for (var i = 0; i <= products.Count - 1; i++) {
 				    if (typeof productCache[i] == 'object') continue;
