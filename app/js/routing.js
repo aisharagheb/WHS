@@ -23,7 +23,7 @@ four51.app.config(['$routeProvider', '$locationProvider', function($routeProvide
 		when('/order/:orderid/:lineitemindex/', { templateUrl: 'partials/Reporting/lineItemHistoryView.html', controller: 'LineItemViewCtrl' }).
 		when('/message', { templateUrl: 'partials/messageListView.html', controller: 'MessageListCtrl' }).
 		when('/message/:id', { templateUrl: 'partials/messageView.html', controller: 'MessageViewCtrl' }).
-        when('/admin', { templateUrl: 'partials/userView.html', controller: 'UserEditCtrl' }).
+        when('/admin', { templateUrl: 'partials/Western/userView.html', controller: 'UserEditCtrl' }).
         when('/addresses', { templateUrl: 'partials/addressListView.html', controller: 'AddressListCtrl' }).
         when('/address', { templateUrl: 'partials/addressView.html', controller: 'AddressViewCtrl' }).
         when('/address/:id', { templateUrl: 'partials/addressView.html', controller: 'AddressViewCtrl' }).
@@ -32,11 +32,12 @@ four51.app.config(['$routeProvider', '$locationProvider', function($routeProvide
 		when('/cart/:productInteropID/:lineItemIndex', { templateUrl: concatProductView, controller: 'LineItemEditCtrl'}).
 		when('/login', { templateUrl: 'partials/controls/login.html', controller: 'LoginCtrl' }).
 		when('/search', { templateUrl: 'partials/searchView.html', controller: 'ProductSearchCtrl' }).
-        when('/search/:searchTerm', { templateUrl: 'partials/searchView.html', controller: 'ProductSearchCtrl' }).
+        when('/search/:searchTerm', { templateUrl: 'partials/Western/searchView.html', controller: 'ProductSearchCtrl' }).
         when('/security', { templateUrl: 'partials/security.html', controller: 'SecurityCtrl' }).
         when('/conditions', { templateUrl: 'partials/conditions.html', controller: 'ConditionsCtrl' }).
 		when('/reports', { templateUrl: 'partials/reportsView.html', controller: 'ReportsCtrl' }).
 		when('/report/:id', { templateUrl: 'partials/Reporting/reportView.html', controller: 'ReportCtrl' }).
+		when('/hotels', { templateUrl: 'partials/Western/homeView.html', controller: 'HomeCtrl' }).
 		when('/contactus/', { templateUrl: 'partials/Messages/contactus.html' }).
 		otherwise({redirectTo: '/catalog'});
 }]);

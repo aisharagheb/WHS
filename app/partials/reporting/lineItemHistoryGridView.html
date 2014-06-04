@@ -3,7 +3,7 @@
         <h3 class="text-primary">
             {{item.ProductIDText}}
         </h3>
-        <span>{{item.Product.Name}}</span>
+        <span>{{item.Product.Name | westernNames}}</span>
         <ul ng-show="item.Specs | filter:{'CanSetForLineItem':true}.length > 0">
             <li class="text-center" ng-repeat="spec in item.Specs | filter:{'CanSetForLineItem':true} ">
                 <span class="text-info">{{spec.Name}} </span>

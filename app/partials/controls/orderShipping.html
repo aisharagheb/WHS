@@ -7,9 +7,6 @@
         </h3>
     </div>
     <div class="panel-body" collapse="checkOutSection != 'shipping'" class="panel-body ">
-        <div>
-            <shippingmessage />
-        </div>
         <div ng-show="addressform || (addresses | filter:{IsShipping:true}).length == 0 && user.Permissions.contains('CreateShipToAddress')">
             <addressinput address='shipaddress' user='user'></addressinput>
         </div>
@@ -39,24 +36,27 @@
                             <div ng-show="!currentOrder.IsMultipleShip()" class="view-form-icon">
                                 <div ng-show="(addresses | filter:{IsShipping:true}).length > 0" ng-class="{'view-form-select': !currentOrder.ShipAddressID, '': currentOrder.ShipAddressID }">
                                     <label ng-class="{required: !currentOrder.IsMultipleShip()}" ng-show="currentOrder.ShipAddressID || !currentOrder.IsMultipleShip()">{{'Shipping' | r}} {{'Address' | r}}</label>
-                                        <select class="form-control" name="shippingAddress"
-                                                ng-change="setShipAddressAtOrderLevel()"
-                                                ng-options="address.ID as address.AddressName for address in addresses | filter:{IsShipping:true}"
-                                                ng-model="currentOrder.ShipAddressID"
-                                                ng-required="!currentOrder.IsMultipleShip()">
-                                        </select>
-                                        <i class="fa fa-map-marker"></i>
+                                    <select class="form-control" name="shippingAddress"
+                                            ng-change="setShipAddressAtOrderLevel()"
+                                            ng-options="address.ID as address.AddressName for address in addresses | filter:{IsShipping:true}"
+                                            ng-model="currentOrder.ShipAddressID"
+                                            ng-required="!currentOrder.IsMultipleShip()">
+                                    </select>
+                                    <i class="fa fa-map-marker"></i>
                                 </div>
                                 <div ng-show="user.ShipMethod != null && shippers" ng-class="{'view-form-select': !currentOrder.LineItems[0].ShipperName, '': currentOrder.LineItems[0].ShipperName }">
                                     <label ng-class="{required: !currentOrder.IsMultipleShip() && user.ShipMethod != null}" ng-show="currentOrder.LineItems[0].ShipperName || !currentOrder.IsMultipleShip() && user.ShipMethod != null">{{'Shipping' | r}} Method</label>
                                     <select class="form-control" ng-change="updateShipper()" name="shipMethod"
                                             ng-model="currentOrder.LineItems[0].ShipperName"
                                             ng-show="user.ShipMethod.ShipperSelectionType == 'UserDropDown'"
-                                            ng-options="shipper.Name as shipper.Name for shipper in shippers"
+                                            ng-options="shipper.Name as shipper.Name for shipper in shippers | whshippers:orderShipAddress.Country"
                                             ng-required="!currentOrder.IsMultipleShip() && user.ShipMethod != null" >
                                     </select>
                                     <i class="fa fa-truck"></i>
                                 </div>
+                            </div>
+                            <div class="alert alert-warning" style="margin-top:15px;" ng-show="orderShipAddress.Country != 'US'">
+                                International Ship Address message
                             </div>
                             <div class="order-location" ng-show="!currentOrder.IsMultipleShip() && orderShipAddress.ID">
                                 <p><strong><small>{{'Shipping' | r}} {{'Location' | r}}</small></strong></p>
@@ -67,7 +67,7 @@
                                 </p>
                                 <div class="row" ng-show="!currentOrder.IsMultipleShip() && user.Permissions.contains('EditShipToName') && (orderShipAddress && !orderShipAddress.IsCustEditable)">
                                     <div class="col-sm-2">
-                                         <input class="form-control" type="text" ng-model="currentOrder.LineItems[0].ShipFirstName" placeholder="{{'First' | r}} {{'Name' | r}}" />
+                                        <input class="form-control" type="text" ng-model="currentOrder.LineItems[0].ShipFirstName" placeholder="{{'First' | r}} {{'Name' | r}}" />
                                     </div>
                                     <div class="col-sm-2">
                                         <input class="form-control" type="text" ng-model="currentOrder.LineItems[0].ShipLastName" placeholder="{{'Last' | r}} {{'Name' | r}}" />
@@ -79,13 +79,6 @@
                                     <small>{{orderShipAddress.City}}<span ng-if="orderShipAddress.City && currentOrderShipAddress.State">, </span> {{orderShipAddress.State}} {{orderShipAddress.Zip}}</small>
                                 </p>
                                 <p ng-show="orderShipAddress.Phone"><small>{{orderShipAddress.Phone}}</small></p>
-                            </div>
-                            <div class="view-form-icon" ng-show="!currentOrder.IsMultipleShip() && user.ShipMethod.AskForAccountNumber">
-                                <div>
-                                    <label ng-show="currentOrder.LineItems[0].ShipAccount">{{'Shipping' | r}} {{'Account' | r}}: </label>
-                                    <input class="form-control" placeholder="{{'Shipping' | r}} Account Number" type="text" ng-model="currentOrder.LineItems[0].ShipAccount" autocomplete="off" />
-                                    <i class="fa fa-book"></i>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -116,7 +109,7 @@
                             </div>
                             <div class="col-sm-5 col-sm-offset-1">
                                 <div class="view-form-icon">
-                                    <div ng-class="{'view-form-select': !item.ShipAddressID, '' : item.ShipAddressID }">
+                                    <div ng-class="{'view-form-select': !item.ShipAddressID, '': item.ShipAddressID }">
                                         <label ng-class="{required: currentOrder.IsMultipleShip()}" ng-show="currentOrder.ShipAddressID || currentOrder.IsMultipleShip()">{{'Shipping' | r}} {{'Address' | r}}</label>
                                         <select class="form-control" name="shippingAddress"
                                                 ng-options="address.ID as address.AddressName for address in addresses | filter:{IsShipping:true}"
@@ -128,7 +121,7 @@
                                     </div>
                                 </div>
                                 <div class="view-form-icon">
-                                    <div ng-class="{'view-form-select': !item.ShipperName, '' : item.ShipperName }">
+                                    <div ng-class="{'view-form-select': !item.ShipperName, '': item.ShipperName }">
                                         <label ng-class="{required: currentOrder.IsMultipleShip() && user.ShipMethod != null}" ng-show="currentOrder.LineItems[0].ShipperName || currentOrder.IsMultipleShip() && user.ShipMethod != null">{{'Shipping' | r}} {{'Method' | r}}</label>
                                         <select class="form-control" ng-change="updateShipper(item)"
                                                 ng-show="user.ShipMethod.ShipperSelectionType == 'UserDropDown'"
@@ -139,16 +132,11 @@
                                         <i class="fa fa-truck"></i>
                                     </div>
                                 </div>
-                                <div class="view-form-icon" ng-show="user.ShipMethod.AskForAccountNumber && currentOrder.IsMultipleShip()">
-                                    <div>
-                                        <label ng-show="item.ShipAccount">{{'Shipping' | r}} {{'Account' | r}}: </label>
-                                        <input class="form-control" ng-if="user.ShipMethod.AskForAccountNumber" placeholder="{{'Shipping' | r}} {{'Account' | r}} {{'Number' | r}}" type="text" ng-model="item.ShipAccount" autocomplete="off" />
-                                        <i class="fa fa-book"></i>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
+                    <label ng-show="currentOrder.LineItems[0].ShipAccount">{{'Shipping' | r}} {{'Account' | r}}: </label>
+                    <input class="form-control" ng-if="user.ShipMethod.AskForAccountNumber" placeholder="{{'Shipping' | r}} Account Number" type="text" ng-model="currentOrder.LineItems[0].ShipAccount" autocomplete="off" />
                 </div>
             </form>
         </div>

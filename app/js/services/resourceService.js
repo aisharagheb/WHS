@@ -336,8 +336,137 @@ four51.app.factory('Resources', function() {
         { "label": "Yukon", "value": "YT", "country": "CA" }
     ];
 
+    var siteList = [
+        {
+            "Name":"Americas Best Value Inn and Lexington Hotel Store",
+            "URL":"http://abvistore.com",
+            "Image":"ABVI.jpg"
+        },
+        {
+            "Name":"Baymont Hotel Store",
+            "URL":"http://www.baymontstore.com",
+            "Image":"baymont.jpg"
+        },
+        {
+            "Name":"Best Western Hotel Store",
+            "URL":"http://bestwesternstore.com",
+            "Image":"bestwestern.jpg"
+        },
+        {
+            "Name":"Budgethost Store",
+            "URL":"http://budgethoststore.com",
+            "Image":"budgethost_whs.jpg"
+        },
+        {
+            "Name":"Clarion Hotel Store",
+            "URL":"http://clarionhotelstore.com",
+            "Image":"clarion.jpg"
+        },
+        {
+            "Name":"Comfort Inn Store",
+            "URL":"http://comfortinnstore.com",
+            "Image":"comfortinn.jpg"
+        },
+        {
+            "Name":"Comfort Suites Store",
+            "URL":"http://comfortsuitesstore.com",
+            "Image":"cslogo.jpg"
+        },
+        {
+            "Name":"Days Inn Store",
+            "URL":"http://daysinnstore.com",
+            "Image":"daysinn.jpg"
+        },
+        {
+            "Name":"Econolodge Hotel Store",
+            "URL":"http://econolodgestore.com",
+            "Image":"econo.jpg"
+        },
+        {
+            "Name":"GrandStay Hospitality Store",
+            "URL":"http://grandstaystore.com",
+            "Image":"grandstayLogo.jpg"
+        },
+        {
+            "Name":"GuestHouse Store",
+            "URL":"http://guesthousestore.com",
+            "Image":"guesthouse.jpg"
+        },
+        {
+            "Name":"Hawthorn Suites Store",
+            "URL":"http://hawthornstore.com",
+            "Image":"hawthorn.jpg"
+        },
+        {
+            "Name":"Howard Johnson Store",
+            "URL":"http://hojostore.com",
+            "Image":"hojo.jpg"
+        },
+        {
+            "Name":"Knights Inn Store",
+            "URL":"http://www.knightsinnstore.com",
+            "Image":"knights.jpg"
+        },
+        {
+            "Name":"Mainstay Suites Store",
+            "URL":"http://mainstaystore.com",
+            "Image":"mainstay.jpg"
+        },
+        {
+            "Name":"Microtel Store",
+            "URL":"http://www.microtelstore.com",
+            "Image":"microtel.jpg"
+        },
+        {
+            "Name":"Quality Inn Store",
+            "URL":"http://qualityinnstore.com",
+            "Image":"quality.jpg"
+        },
+        {
+            "Name":"Ramada Store",
+            "URL":"http://ramadastore.com",
+            "Image":"ramada.jpg"
+        },
+        {
+            "Name":"Rodeway Inn Store",
+            "URL":"http://rodewaystore.com",
+            "Image":"rodeway.jpg"
+        },
+        {
+            "Name":"Settle Inn Store",
+            "URL":"http://settleinnstore.com",
+            "Image":"settleinn.jpg"
+        },
+        {
+            "Name":"Sleep Inn Store",
+            "URL":"http://sleepinnstore.com",
+            "Image":"sleepinn.jpg"
+        },
+        {
+            "Name":"Suburban Hotel Store",
+            "URL":"http://suburbanhotelstore.com",
+            "Image":"suburban.jpg"
+        },
+        {
+            "Name":"Super 8 Store",
+            "URL":"http://super8store.net",
+            "Image":"super8.jpg"
+        },
+        {
+            "Name":"Travelodge Store",
+            "URL":"http://travelodgestore.com",
+            "Image":"travelodge.jpg"
+        },
+        {
+            "Name":"Wingate Hotel Store",
+            "URL":"http://wingatestore.com",
+            "Image":"wingate.jpg"
+        }
+    ];
+
     return {
         countries:  countries,
-        states: states
+        states: states,
+        siteList: siteList
     };
 });

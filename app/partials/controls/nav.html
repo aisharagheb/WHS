@@ -8,19 +8,75 @@
                             <i class="fa fa-arrow-left"></i>
                         </a>
                     </li>
-                    <li class="products" ng-class="{'active': isInPath('catalog') || isInPath('product') || isInPath('cart/default') || isInPath('search')}">
+                    <li class="home" ng-class="{'active': isInPath('catalog') || isInPath('search')}">
                         <a id="451qa_home_link" ng-show="Four51User.isAuthenticated()" href="catalog">
                             <i class="fa fa-home"></i>
-                            <span class="hidden-xs">{{'Products' | rc}}</span>
+                            <span class="hidden-xs">{{'Home' | rc}}</span>
                         </a>
                     </li>
-                    <li class="order" ng-class="{'active': isActive('order'), 'active-xs': isActive('favoriteorders')}">
+                    <li class="about hidden-md hidden-lg" ng-class="{'active': isActive(['about'])}">
+                        <a href="about">
+                            <i class="fa fa-info-circle"></i>
+                            <span class="hidden-xs">{{'About' | r}}</span>
+                        </a>
+                    </li>
+                    <li class="dropdown visible-md visible-lg" ng-class="{'active': isActive(['about'])}">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-info-circle"></i>
+                            <span class="hidden-xs">{{'About' | r}}</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="#">
+                                <a href="#">
+                                    {{'Link 1' | r}}
+                                </a>
+                            </li>
+                            <li class="#">
+                                <a href="#">
+                                    {{'Link 2' | r}}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="contact" ng-class="{'active': isActive('contact')}">
+                        <a href="contact">
+                            <i class="fa fa-phone"></i>
+                            <span class="hidden-xs">{{'Contact' | r}}</span>
+                        </a>
+                    </li>
+                    <li ng-class="{'active': isActive(['policies', 'faq', 'disclaimer'])}" class="hidden-md hidden-lg">
+                        <a id="451qa_acct_link" href="admin" >
+                            <i class="fa fa-asterisk"></i>
+                            <span class="hidden-xs">{{'Account' | r}}</span>
+                        </a>
+                    </li>
+                    <li class="dropdown visible-md visible-lg" ng-class="{'active': isActive(['policies', 'faq', 'disclaimer'])}">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-asterisk"></i>
+                            <span class="hidden-xs">{{'Policies' | r}}</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="faq">
+                                <a href="faq">
+                                    {{'FAQs' | r}}
+                                </a>
+                            </li>
+                            <li class="disclaimer">
+                                <a href="disclaimer">
+                                    {{'Disclaimer' | r}}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--<li class="order" ng-class="{'active': isActive('order'), 'active-xs': isActive('favoriteorders')}">
                         <a id="451qa_order_link" href="order">
                             <i class="fa fa-clipboard"></i>
                             <span class="hidden-xs">{{'Orders' | r}}</span>
                         </a>
-                    </li>
-                    <li class="report" ng-if="AppConst.debug" ng-class="{'active': isActive('reports'), 'active-xs': isActive('reports')}">
+                    </li>-->
+                    <!--<li class="report" ng-if="AppConst.debug" ng-class="{'active': isActive('reports'), 'active-xs': isActive('reports')}">
                         <a id="451qa_order_link" href="reports">
                             <i class="fa fa-bar-chart-o"></i>
                             <span class="hidden-xs">{{'Reports' | r}}</span>
@@ -31,7 +87,7 @@
                             <i class="fa fa-heart"></i>
                             <span>{{'Favorites' | r}}</span>
                         </a>
-                    </li>
+                    </li>-->
                     <li ng-class="{'active': isActive(['admin', 'addresses', 'address', 'messages', 'message'])}">
                         <a id="451qa_acct_link" href="admin" class="hidden-md hidden-lg">
                             <i class="fa fa-cog"></i>

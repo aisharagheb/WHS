@@ -78,3 +78,35 @@ four51.app.filter('paginate', function() {
 		return input.slice(start);
 	}
 });
+
+//WHS Filters -------------------
+four51.app.filter('whshippers', function() {
+    return function(shippers, country) {
+        if (shippers && country) {
+            var results = [];
+            if (country == "US") {
+                angular.forEach(shippers, function(shipper){
+                    if (shipper.Name.indexOf('International') == -1) {
+                        results.push(shipper);
+                    }
+                });
+            }
+            else {
+                angular.forEach(shippers, function(shipper){
+                    if (shipper.Name.indexOf('International') > -1) {
+                        results.push(shipper);
+                    }
+                });
+            }
+
+            return results;
+        }
+    }
+});
+
+four51.app.filter('westernNames', function() {
+    return function(name) {
+        var newname = name.replace('<br />',' ').replace('<br>',' ').replace('<BR>',' ');
+        return newname;
+    }
+});

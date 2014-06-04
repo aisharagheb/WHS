@@ -62,9 +62,9 @@ function ($scope, $route, $location, $451, User, Order, Security, OrderConfig, C
 		ga('require', 'ecommerce', 'ecommerce.js');
 	}
 
-	trackJs.configure({
-		trackAjaxFail: false
-	});
+//	trackJs.configure({
+//		trackAjaxFail: false
+//	});
 
     $scope.errorSection = '';
 
