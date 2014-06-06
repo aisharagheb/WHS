@@ -15,7 +15,7 @@ four51.app.controller('ProductSearchCtrl', ['$scope', 'Product', '$routeParams',
                     });
                 }
                 $scope.searchLoading = false;
-            });
+            }, 1, 100);
         }
 
         $scope.search = function(){
