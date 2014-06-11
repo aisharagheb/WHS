@@ -1,7 +1,7 @@
 four51.app.directive('productlistview', function() {
     var obj = {
         restrict: "E",
-        templateUrl:'partials/productListView.html'
+        templateUrl:'partials/ProductListViews/productListInlineMinimalLess.html'
     };
 
     return obj;

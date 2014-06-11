@@ -12,8 +12,11 @@
                 <i class="fa fa-sort"/>
             </div>
         </div>
+        <div class="form-group">
+            <input placeholder="Filter Products..." class="form-control" type="text" ng-model="keyword"/>
+        </div>
         <ul>
-            <li class="inline minimal" id="451_lst_prod" ng-repeat="product in products | paginate:(settings.currentPage-1) * settings.pageSize | limitTo:settings.pageSize | orderBy:sorter:direction">
+            <li class="inline minimal" id="451_lst_prod" ng-repeat="product in products | filter:keyword | paginate:(settings.currentPage-1) * settings.pageSize | limitTo:settings.pageSize | orderBy:sorter:direction">
                 <div class="well">
                     <shortproductviewminimal p="product" user="user" />
                 </div>
