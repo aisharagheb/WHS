@@ -14,48 +14,22 @@
                             <span class="hidden-xs">{{'Home' | rc}}</span>
                         </a>
                     </li>
-                    <li class="about hidden-md hidden-lg" ng-class="{'active': isActive(['about'])}">
+                    <li class="about" ng-class="{'active': isActive(['about'])}">
                         <a href="about">
                             <i class="fa fa-info-circle"></i>
-                            <span class="hidden-xs">{{'About' | r}}</span>
+                            <span class="hidden-xs">{{'About Us' | r}}</span>
                         </a>
                     </li>
-                    <li class="dropdown visible-md visible-lg" ng-class="{'active': isActive(['about'])}">
-                        <a class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-info-circle"></i>
-                            <span class="hidden-xs">{{'About' | r}}</span>
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="#">
-                                <a href="#">
-                                    {{'Link 1' | r}}
-                                </a>
-                            </li>
-                            <li class="#">
-                                <a href="#">
-                                    {{'Link 2' | r}}
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li class="contact" ng-class="{'active': isActive('contact')}">
-                                <a href="contact">
-                                    <i class="fa fa-phone"></i>
-                                    {{'Contact' | r}}
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li ng-class="{'active': isActive(['policies', 'faq', 'disclaimer'])}" class="hidden-md hidden-lg">
-                        <a id="451qa_acct_link" href="admin" >
+                    <li ng-class="{'ac': isActive(['resources', 'faq', 'returns', 'terms', 'privacy'])}" class="hidden-md hidden-lg">
+                        <a href="resources" >
                             <i class="fa fa-asterisk"></i>
-                            <span class="hidden-xs">{{'Account' | r}}</span>
+                            <span class="hidden-xs">{{'Resources' | r}}</span>
                         </a>
                     </li>
-                    <li class="dropdown visible-md visible-lg" ng-class="{'active': isActive(['policies', 'faq', 'disclaimer'])}">
+                    <li class="dropdown visible-md visible-lg" ng-class="{'active': isActive(['resources', 'faq', 'returns', 'terms', 'privacy'])}">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-asterisk"></i>
-                            <span class="hidden-xs">{{'Policies' | r}}</span>
+                            <span class="hidden-xs">{{'Resources' | r}}</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
@@ -64,9 +38,19 @@
                                     {{'FAQs' | r}}
                                 </a>
                             </li>
-                            <li class="disclaimer">
-                                <a href="disclaimer">
-                                    {{'Disclaimer' | r}}
+                            <li class="returns">
+                                <a href="returns">
+                                    {{'Shipping & Returns' | r}}
+                                </a>
+                            </li>
+                            <li class="terms">
+                                <a href="terms">
+                                    {{'Terms & Conditions of Sale' | r}}
+                                </a>
+                            </li>
+                            <li class="privacy">
+                                <a href="privacy">
+                                    {{'Privacy & Security' | r}}
                                 </a>
                             </li>
                         </ul>

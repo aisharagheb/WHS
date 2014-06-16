@@ -38,6 +38,12 @@ four51.app.config(['$routeProvider', '$locationProvider', function($routeProvide
 		when('/reports', { templateUrl: 'partials/reportsView.html', controller: 'ReportsCtrl' }).
 		when('/report/:id', { templateUrl: 'partials/Reporting/reportView.html', controller: 'ReportCtrl' }).
 		when('/hotels', { templateUrl: 'partials/Western/homeView.html', controller: 'HomeCtrl' }).
+		when('/about', { templateUrl: 'partials/Western/aboutView.html', controller: 'HomeCtrl' }).
+		when('/faq', { templateUrl: 'partials/Western/faqView.html', controller: 'HomeCtrl' }).
+		when('/returns', { templateUrl: 'partials/Western/returnsView.html', controller: 'HomeCtrl' }).
+		when('/terms', { templateUrl: 'partials/Western/termsView.html', controller: 'HomeCtrl' }).
+		when('/privacy', { templateUrl: 'partials/Western/privacyView.html', controller: 'HomeCtrl' }).
+		when('/resources', { templateUrl: 'partials/Western/resourcesView.html', controller: 'HomeCtrl' }).
 		when('/contactus/', { templateUrl: 'partials/Messages/contactus.html' }).
 		otherwise({redirectTo: '/catalog'});
 }]);
