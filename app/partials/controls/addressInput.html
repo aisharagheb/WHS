@@ -68,14 +68,14 @@
             </div>
         </div>
         <hr />
-        <div class="row create-address-type">
-            <div class="checkbox">
+        <div class="row">
+            <div class="checkbox address-type-shipping">
                 <label ng-show="user.Permissions.contains('CreateShipToAddress')">
                     <input name="isShipping" type="checkbox" ng-model="address.IsShipping" ng-required="!address.IsBilling" />
                     Save to Shipping Address Book
                 </label>
             </div>
-            <div class="checkbox">
+            <div class="checkbox address-type-billing">
                 <label ng-show="user.Permissions.contains('CreateBillToAddress')">
                     <input name="isBilling" type="checkbox" ng-model="address.IsBilling" ng-required="!address.IsShipping" />
                     Save to Billing Address Book

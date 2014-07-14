@@ -6,6 +6,8 @@ four51.app.factory('AddressList', ['$q', '$resource', '$451', function($q, $reso
 	}
 
 	var _query = function(success, page, pagesize) {
+        page = page || 1;
+        pagesize = pagesize || 100;
 		if (typeof cache[(page-1) * pagesize] == 'object' && typeof cache[(page * pagesize) - 1] == 'object') {
 			_then(success, cache, cache.length);
 		}

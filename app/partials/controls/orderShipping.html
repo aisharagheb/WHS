@@ -7,7 +7,7 @@
         </h3>
     </div>
     <div class="panel-body" collapse="checkOutSection != 'shipping'" class="panel-body ">
-        <div ng-show="addressform || (addresses | filter:{IsShipping:true}).length == 0 && user.Permissions.contains('CreateShipToAddress')">
+        <div ng-show="addressform || (addresses | filter:{IsShipping:true}).length == 0 && user.Permissions.contains('CreateShipToAddress')" class="ordershipping">
             <addressinput address='shipaddress' user='user'></addressinput>
         </div>
         <div ng-show="!addressform">

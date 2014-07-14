@@ -10,7 +10,7 @@
         <div>
             <billingmessage />
         </div>
-        <div ng-show="billaddressform || (addresses | filter:{IsBilling:true}).length == 0 && user.Permissions.contains('CreateBillToAddress')">
+        <div ng-show="billaddressform || (addresses | filter:{IsBilling:true}).length == 0 && user.Permissions.contains('CreateBillToAddress')" class="orderbilling">
             <addressinput address='billaddress' user='user'></addressinput>
         </div>
         <div ng-hide="billaddressform || (addresses | filter:{IsBilling:true}).length == 0 && user.Permissions.contains('CreateBillToAddress')">
