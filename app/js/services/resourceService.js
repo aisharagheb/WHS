@@ -461,6 +461,11 @@ four51.app.factory('Resources', function() {
             "Name":"Wingate Hotel Store",
             "URL":"http://wingatestore.com",
             "Image":"wingate.jpg"
+        },
+        {
+            "Name":"Wyndham Store",
+            "URL":"http://wyndhamstore.westernconnect.com",
+            "Image":"wyndham.jpg"
         }
     ];
 
